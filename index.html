@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CyberCup</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header class="navbar">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">CyberCup</a>
+                <nav>
+                    <a class="nav-link" href="tournaments.html">Турниры</a>
+                    <a class="nav-link" href="teams.html">Команды</a>
+                    <a class="nav-link">Контакты</a>
+                </nav>
+            </div>
+            <div class="avatar">
+                <div>&nbsp;</div>
+            </div>
+        </header>
+
+        <div class="container">
+            <section class="about-card">
+                <div class="about-text">
+                    <h1>Аналитика Киберспорта</h1>
+                    <p>
+                        Мы исследуем спортивную арену видеоигр, известных личностей
+                        и крупные мероприятия в этой сфере.
+                    </p>
+                </div>
+            </section>
+
+            <section id="disciplines" class="card">
+                <h2>Ключевые Направления</h2>
+                <ul class="skills-list">
+                    <li>Counter-Strike 2 & Тактические шутеры</li>
+                    <li>Трансляции и организация турниров</li>
+                    <li>Аналитика игр и командных стратегий</li>
+                </ul>
+            </section>
+
+            <section id="tournaments" class="card">
+                <h2>Предстоящие Турниры</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>PGL Major CS2</h3>
+                        <p>Локация: Копенгаген, Дания</p>
+                        <p>Призовой фонд: $1,250,000</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>IEM Cologne</h3>
+                        <p>Локация: Кёльн, Германия</p>
+                        <p>Призовой фонд: $1,000,000</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>BLAST Premier World Final</h3>
+                        <p>Локация: Сингапур</p>
+                        <p>Призовой фонд: $1,000,000</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="card">
+                <h2>Регистрация в сервисе</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Название команды:</label>
+                        <input type="text" id="name" name="name" placeholder="Имя команды" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="example@tallfly.me" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Информация о команде:</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Укажите состав команды..."></textarea>
+                    </div>
+                    <button type="submit" class="btn">Подать заявку</button>
+                </form>
+            </section>
+            <footer class="footer">
+                <p>&copy; 2026 Киберспортивный Портал. Все права защищены.</p>
+            </footer>
+        </div>
+    </body>
+</html>
