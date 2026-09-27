@@ -1,0 +1,55 @@
+@media screen and (max-width: 768px) {
+    .container {
+        margin-top: 45px;
+    }
+
+    .navbar {
+        padding: 10px 12px;
+    }
+
+    .skills-list {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .skills-list li {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        margin-top: 60px;
+    }
+
+    .nav-wrapper {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .navbar {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .avatar {
+        display: none;
+    }
+
+    nav {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav-link {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    .projects-grid,
+    .tournaments-grid,
+    .teams-grid {
+        grid-template-columns: 1fr;
+    }
+}
