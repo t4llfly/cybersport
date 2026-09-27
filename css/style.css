@@ -1,0 +1,276 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: monospace;
+}
+
+body {
+    background-color: #212529;
+    color: white;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.navbar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #001219;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 1000;
+    padding: 8px 16px;
+}
+
+.nav-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    text-decoration: none;
+    background-color: #212529;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: background-color 0.2s ease;
+}
+
+.nav-link:hover {
+    background-color: #14213d;
+}
+
+.avatar {
+    display: flex;
+    background-color: darkgray;
+    border-radius: 100%;
+    min-width: 32px;
+    height: 32px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 8px;
+    width: 100%;
+}
+
+.about-card {
+    background-color: #14213d;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.about-text h1 {
+    font-size: clamp(24px, 4vw, 36px);
+    margin-bottom: 16px;
+}
+
+.about-text p {
+    font-size: clamp(14px, 2vw, 18px);
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.3;
+}
+
+.card {
+    background-color: #001219;
+    color: white;
+    padding: 32px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.card h2 {
+    font-size: clamp(20px, 3vw, 28px);
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.projects-grid,
+.tournaments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    max-width: 1100px;
+    width: 100%;
+    gap: 16px;
+    padding: 0 8px;
+}
+
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    max-width: 1200px;
+    width: 100%;
+    gap: 16px;
+    padding: 0 8px;
+}
+
+.project-card,
+.tournament-card,
+.team-card {
+    background-color: #212529;
+    color: white;
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.team-card img,
+.tournament-card img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 0;
+    list-style: none;
+    max-width: 900px;
+}
+
+.skills-list li {
+    background-color: #212529;
+    padding: 12px 16px;
+    text-align: center;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    width: 100%;
+    max-width: 450px;
+    gap: 8px;
+    padding: 0 8px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #495057;
+    background-color: #212529;
+    color: white;
+    font-family: inherit;
+}
+
+.btn {
+    background-color: #14213d;
+    color: white;
+    border: none;
+    padding: 12px 32px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #1d3557;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #001219;
+    color: white;
+    padding: 24px 16px;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        margin-top: 45px;
+    }
+
+    .navbar {
+        padding: 10px 12px;
+    }
+
+    .skills-list {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .skills-list li {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        margin-top: 60px;
+    }
+
+    .nav-wrapper {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .navbar {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .avatar {
+        display: none;
+    }
+
+    nav {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav-link {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    .projects-grid,
+    .tournaments-grid,
+    .teams-grid {
+        grid-template-columns: 1fr;
+    }
+}
