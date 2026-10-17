@@ -1,110 +1,152 @@
 <!DOCTYPE html>
-<html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CyberCup | Teams</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <header class="navbar">
-            <div class="nav-wrapper">
-                <a href="index.html" class="logo">CyberCup</a>
-                <nav>
-                    <a class="nav-link" href="tournaments.html">Турниры</a>
-                    <a class="nav-link" href="teams.html">Команды</a>
-                    <a class="nav-link" href="contact.html">Контакты</a>
-                </nav>
-            </div>
-            <div class="avatar">
-                <div>&nbsp;</div>
-            </div>
-        </header>
-
+<html lang="ru" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberCup | Teams</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-monospace bg-dark text-light">
+    <nav class="navbar navbar-expand-lg bg-black border-bottom border-secondary fixed-top">
         <div class="container">
-            <section class="about-card">
-                <div class="about-text">
-                    <h1>Команды турниров</h1>
-                    <p>
-                        Мы сами ведем учет участвующих в турнирах команд,
-                        и рады видеть новые команды в нашем списке.
-                    </p>
+            <a class="navbar-brand fw-bold" href="index.html">CyberCup</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-lg-2">
+                    <li class="nav-item"><a class="nav-link px-3" href="tournaments.html">Турниры</a></li>
+                    <li class="nav-item"><a class="nav-link active px-3" href="teams.html">Команды</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="contact.html">Контакты</a></li>
+                </ul>
+                <div class="d-none d-lg-block">
+                    <div class="rounded-circle bg-secondary" style="width: 32px; height: 32px;"></div>
                 </div>
-            </section>
-
-            <section id="teams" class="card">
-                <h2>Команды‑участники</h2>
-
-                <div class="teams-grid">
-                    <div class="team-card">
-                        <img src="images/teams/team_alpha.png" alt="Team Alpha">
-                        <h3>Team Alpha</h3>
-                        <p>Страна: Казахстан</p>
-                        <p>Состав: 5 игроков</p>
-                        <p>Winrate: 72%</p>
-                    </div>
-
-                    <div class="team-card">
-                        <img src="images/teams/team_omega.png" alt="Team Omega">
-                        <h3>Team Omega</h3>
-                        <p>Страна: Россия</p>
-                        <p>Состав: 5 игроков</p>
-                        <p>Winrate: 65%</p>
-                    </div>
-
-                    <div class="team-card">
-                        <img src="images/teams/dragon_esports.png" alt="Dragon Esports">
-                        <h3>Dragon Esports</h3>
-                        <p>Страна: Китай</p>
-                        <p>Состав: 5 игроков</p>
-                        <p>Winrate: 80%</p>
-                    </div>
-
-                    <div class="team-card">
-                        <img src="images/teams/nordic_wolves.png" alt="Nordic Wolves">
-                        <h3>Nordic Wolves</h3>
-                        <p>Страна: Швеция</p>
-                        <p>Состав: 5 игроков</p>
-                        <p>Winrate: 68%</p>
-                    </div>
-
-                    <div class="team-card">
-                        <img src="images/teams/desert_falcons.png" alt="Desert Falcons">
-                        <h3>Desert Falcons</h3>
-                        <p>Страна: ОАЭ</p>
-                        <p>Состав: 5 игроков</p>
-                        <p>Winrate: 74%</p>
-                    </div>
-
-                    <div class="team-card">
-                        <img src="images/teams/cyber_ninjas.png" alt="Cyber Ninjas">
-                        <h3>Cyber Ninjas</h3>
-                        <p>Страна: Япония</p>
-                        <p>Состав: 5 игроков</p>
-                        <p>Winrate: 77%</p>
-                    </div>
-
-                    <div class="team-card">
-                        <img src="images/teams/inferno_squad.png" alt="Inferno Squad">
-                        <h3>Inferno Squad</h3>
-                        <p>Страна: Бразилия</p>
-                        <p>Состав: 5 игроков</p>
-                        <p>Winrate: 70%</p>
-                    </div>
-
-                    <div class="team-card">
-                        <img src="images/teams/steel_titans.png" alt="Steel Titans">
-                        <h3>Steel Titans</h3>
-                        <p>Страна: Германия</p>
-                        <p>Состав: 5 игроков</p>
-                        <p>Winrate: 75%</p>
-                    </div>
-                </div>
-            </section>
-
-            <footer class="footer">
-                <p>&copy; 2026 Киберспортивный Портал. Все права защищены.</p>
-            </footer>
+            </div>
         </div>
-    </body>
+    </nav>
+
+    <main class="container pt-5 mt-5 d-flex flex-column gap-4">
+        <section class="card bg-primary-subtle text-primary-emphasis border-0 py-5 px-3 text-center rounded-3">
+            <div class="card-body">
+                <h1 class="display-6 fw-bold mb-3">Команды турниров</h1>
+                <p class="lead mx-auto mb-0" style="max-width: 750px;">
+                    Мы сами ведем учет участвующих в турнирах команд, и рады видеть новые команды в нашем списке.
+                </p>
+            </div>
+        </section>
+
+        <section id="teams" class="card bg-black border-secondary p-4">
+            <h2 class="h4 fw-bold mb-4 text-center">Команды‑участники</h2>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+
+                <div class="col">
+                    <div class="card bg-dark border-secondary h-100 text-center p-3">
+                        <img src="images/teams/team_alpha.png" class="card-img-top mx-auto img-fluid mb-3" style="max-height: 120px; object-fit: contain;" alt="Team Alpha">
+                        <div class="card-body p-0">
+                            <h3 class="h5 card-title fw-bold">Team Alpha</h3>
+                            <p class="card-text mb-1 text-secondary">Страна: Казахстан</p>
+                            <p class="card-text mb-1 text-secondary">Состав: 5 игроков</p>
+                            <span class="badge text-bg-success">Winrate: 72%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card bg-dark border-secondary h-100 text-center p-3">
+                        <img src="images/teams/team_omega.png" class="card-img-top mx-auto img-fluid mb-3" style="max-height: 120px; object-fit: contain;" alt="Team Omega">
+                        <div class="card-body p-0">
+                            <h3 class="h5 card-title fw-bold">Team Omega</h3>
+                            <p class="card-text mb-1 text-secondary">Страна: Россия</p>
+                            <p class="card-text mb-1 text-secondary">Состав: 5 игроков</p>
+                            <span class="badge text-bg-info">Winrate: 65%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card bg-dark border-secondary h-100 text-center p-3">
+                        <img src="images/teams/dragon_esports.png" class="card-img-top mx-auto img-fluid mb-3" style="max-height: 120px; object-fit: contain;" alt="Dragon Esports">
+                        <div class="card-body p-0">
+                            <h3 class="h5 card-title fw-bold">Dragon Esports</h3>
+                            <p class="card-text mb-1 text-secondary">Страна: Китай</p>
+                            <p class="card-text mb-1 text-secondary">Состав: 5 игроков</p>
+                            <span class="badge text-bg-danger">Winrate: 80%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card bg-dark border-secondary h-100 text-center p-3">
+                        <img src="images/teams/nordic_wolves.png" class="card-img-top mx-auto img-fluid mb-3" style="max-height: 120px; object-fit: contain;" alt="Nordic Wolves">
+                        <div class="card-body p-0">
+                            <h3 class="h5 card-title fw-bold">Nordic Wolves</h3>
+                            <p class="card-text mb-1 text-secondary">Страна: Швеция</p>
+                            <p class="card-text mb-1 text-secondary">Состав: 5 игроков</p>
+                            <span class="badge text-bg-info">Winrate: 68%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card bg-dark border-secondary h-100 text-center p-3">
+                        <img src="images/teams/desert_falcons.png" class="card-img-top mx-auto img-fluid mb-3" style="max-height: 120px; object-fit: contain;" alt="Desert Falcons">
+                        <div class="card-body p-0">
+                            <h3 class="h5 card-title fw-bold">Desert Falcons</h3>
+                            <p class="card-text mb-1 text-secondary">Страна: ОАЭ</p>
+                            <p class="card-text mb-1 text-secondary">Состав: 5 игроков</p>
+                            <span class="badge text-bg-success">Winrate: 74%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card bg-dark border-secondary h-100 text-center p-3">
+                        <img src="images/teams/cyber_ninjas.png" class="card-img-top mx-auto img-fluid mb-3" style="max-height: 120px; object-fit: contain;" alt="Cyber Ninjas">
+                        <div class="card-body p-0">
+                            <h3 class="h5 card-title fw-bold">Cyber Ninjas</h3>
+                            <p class="card-text mb-1 text-secondary">Страна: Япония</p>
+                            <p class="card-text mb-1 text-secondary">Состав: 5 игроков</p>
+                            <span class="badge text-bg-success">Winrate: 77%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card bg-dark border-secondary h-100 text-center p-3">
+                        <img src="images/teams/inferno_squad.png" class="card-img-top mx-auto img-fluid mb-3" style="max-height: 120px; object-fit: contain;" alt="Inferno Squad">
+                        <div class="card-body p-0">
+                            <h3 class="h5 card-title fw-bold">Inferno Squad</h3>
+                            <p class="card-text mb-1 text-secondary">Страна: Бразилия</p>
+                            <p class="card-text mb-1 text-secondary">Состав: 5 игроков</p>
+                            <span class="badge text-bg-warning">Winrate: 70%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card bg-dark border-secondary h-100 text-center p-3">
+                        <img src="images/teams/steel_titans.png" class="card-img-top mx-auto img-fluid mb-3" style="max-height: 120px; object-fit: contain;" alt="Steel Titans">
+                        <div class="card-body p-0">
+                            <h3 class="h5 card-title fw-bold">Steel Titans</h3>
+                            <p class="card-text mb-1 text-secondary">Страна: Германия</p>
+                            <p class="card-text mb-1 text-secondary">Состав: 5 игроков</p>
+                            <span class="badge text-bg-success">Winrate: 75%</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer class="text-center py-4 text-secondary border-top border-secondary mt-2">
+            <p class="mb-0">&copy; 2026 Киберспортивный Портал. Все права защищены.</p>
+        </footer>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
