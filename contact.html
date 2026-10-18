@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" data-bs-theme="dark">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,14 +11,14 @@
     <nav class="navbar navbar-expand-lg bg-black border-bottom border-secondary fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">CyberCup</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="mainNavbar">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-lg-2">
-                    <li class="nav-item"><a class="nav-link px-3" href="tournaments.html">Турниры</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="teams.html">Команды</a></li>
-                    <li class="nav-item"><a class="nav-link active px-3" href="contact.html">Контакты</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="tournaments.html">Tournaments</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="teams.html">Teams</a></li>
+                    <li class="nav-item"><a class="nav-link active px-3" href="contact.html">Contact</a></li>
                 </ul>
                 <div class="d-none d-lg-block">
                     <div class="rounded-circle bg-secondary" style="width: 32px; height: 32px;"></div>
@@ -30,23 +30,60 @@
     <main class="container pt-5 mt-5 d-flex flex-column gap-4">
         <section class="card bg-primary-subtle text-primary-emphasis border-0 py-5 px-3 text-center rounded-3">
             <div class="card-body">
-                <h1 class="display-6 fw-bold mb-3">Контакты</h1>
+                <h1 class="display-6 fw-bold mb-3">Contact Us</h1>
                 <p class="lead mx-auto mb-0" style="max-width: 750px;">
-                    Свяжитесь с нами, если вам нужна дополнительная информация.
+                    Get in touch with us if you need any additional information or have inquiries regarding tournaments.
                 </p>
             </div>
         </section>
 
         <section class="card bg-black border-secondary p-4 text-center">
             <div class="card-body py-4">
-                <p class="fs-5 mb-2">Контакты организаторов: <a href="mailto:esports@cybercup.kz" class="link-info text-decoration-none">esports@cybercup.kz</a></p>
-                <p class="fs-5 mb-2">Телефон: <a href="tel:+77676712345" class="link-light text-decoration-none">+77676712345</a></p>
-                <p class="fs-5 mb-0 text-secondary">Мы в соцсетях: <span class="text-light">Telegram | YouTube</span></p>
+                <p class="fs-5 mb-2">Organizer Email: <a href="mailto:esports@cybercup.kz" class="link-info text-decoration-none">esports@cybercup.kz</a></p>
+                <p class="fs-5 mb-2">Phone: <a href="tel:+77676712345" class="link-light text-decoration-none">+77676712345</a></p>
+                <p class="fs-5 mb-0 text-secondary">Follow Us: <span class="text-light">Telegram | YouTube</span></p>
+            </div>
+        </section>
+
+        <section id="contact" class="card bg-black border-secondary p-4">
+            <h2 class="h4 fw-bold mb-4 text-center">Contact Us</h2>
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name:</label>
+                            <input type="text"
+                                class="form-control bg-dark text-light border-secondary"
+                                id="name"
+                                placeholder="Enter team name"
+                                required
+                            >
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email"
+                                class="form-control bg-dark text-light border-secondary"
+                                id="email"
+                                placeholder="example@tallfly.me"
+                                required
+                            >
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="form-label">Message:</label>
+                            <textarea class="form-control bg-dark text-light border-secondary"
+                                id="message"
+                                rows="4"
+                                placeholder="Specify team roster, achievements, etc..."
+                            ></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Submit</button>
+                    </form>
+                </div>
             </div>
         </section>
 
         <footer class="text-center py-4 text-secondary border-top border-secondary mt-2">
-            <p class="mb-0">&copy; 2026 Киберспортивный Портал. Все права защищены.</p>
+            <p class="mb-0">&copy; 2026 CyberCup Esports Portal. All rights reserved.</p>
         </footer>
 
     </main>
