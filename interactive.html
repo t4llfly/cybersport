@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark" id="htmlRoot">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberCup | Settings</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body.light-theme {
+            background-color: #f8f9fa !important;
+            color: #212529 !important;
+        }
+        body.light-theme .card,
+        body.light-theme .navbar {
+            background-color: #ffffff !important;
+            color: #212529 !important;
+            border-color: #dee2e6 !important;
+        }
+        body.light-theme .form-control,
+        body.light-theme .form-select {
+            background-color: #ffffff !important;
+            color: #212529 !important;
+            border-color: #ced4da !important;
+        }
+        body.light-theme .bg-black {
+            background-color: #e9ecef !important;
+        }
+    </style>
+</head>
+<body class="font-monospace bg-dark text-light">
+    <nav class="navbar navbar-expand-lg bg-black border-bottom border-secondary fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-uppercase" href="index.html">CyberCup</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-lg-2">
+                    <li class="nav-item"><a class="nav-link px-3" href="tournaments.html">Tournaments</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="teams.html">Teams</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="register.html">Register</a></li>
+                </ul>
+                <ul class="navbar-nav mb-2 mb-lg-0 gap-lg-2">
+                    <li class="nav-item"><a class="nav-link active px-3" href="interactive.html">Settings</a></li>
+                    <button id="themeToggleBtn" class="btn btn-outline-warning btn-sm fw-bold">Switch to Light Theme</button>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container pt-5 mt-5 d-flex flex-column gap-5 mb-5">
+
+        <header class="card bg-primary-subtle text-primary-emphasis border-0 py-4 px-3 text-center rounded-3">
+            <h1 class="h2 fw-bold mb-1">Settings</h1>
+            <p class="mb-0 text-secondary">Set up your profile and preferences.</p>
+        </header>
+
+        <section class="card bg-black border-secondary p-4" aria-labelledby="task0-heading">
+            <h2 id="task0-heading" class="h4 fw-bold text-center">Greeting</h2>
+            <p class="text-secondary text-center small">Your nickname for a personalised welcome banner in lobbies.</p>
+
+            <div class="row g-3 align-items-center mb-3">
+                <div class="col-12 col-md-8">
+                    <label for="playerNameInput" class="form-label fw-semibold">Nickname:</label>
+                    <input type="text" id="playerNameInput" class="form-control bg-dark text-light border-secondary" placeholder="e.g., s1mple">
+                </div>
+                <div class="col-12 col-md-4 align-self-end">
+                    <button id="greetBtn" class="btn btn-primary w-100 fw-bold">Preview</button>
+                </div>
+            </div>
+            <div id="greetingOutput" class="alert alert-secondary mb-0" role="status">
+                Preview will be here.
+            </div>
+        </section>
+
+        <section class="card bg-black border-secondary text-center p-4" aria-labelledby="task1-heading">
+            <h2 id="task1-heading" class="h4 fw-bold">Theme Switcher</h2>
+            <p class="text-secondary small">Toggles between dark and light themes.</p>
+            <div>
+                <button id="themeToggleBodyBtn" class="btn btn-outline-warning fw-bold">Switch to Light Theme</button>
+            </div>
+        </section>
+
+        <section class="card bg-black border-secondary p-4" aria-labelledby="task2-heading">
+            <h2 id="task2-heading" class="h4 fw-bold mb-3 text-center">FAQ</h2>
+
+            <div class="d-flex flex-column gap-3">
+                <div class="border border-secondary rounded p-3 bg-dark">
+                    <button class="btn btn-link text-decoration-none text-light fw-bold w-100 text-start d-flex justify-content-between align-items-center faq-toggle"
+                            aria-expanded="false"
+                            aria-controls="faq-ans-1">
+                        <span>1. What are the tournament anti-cheat requirements?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div id="faq-ans-1" class="faq-answer mt-3 pt-2 border-top border-secondary text-secondary" hidden>
+                        All players must run our proprietary CyberCup kernel-level anti-cheat client alongside Steam VAC.
+                    </div>
+                </div>
+
+                <div class="border border-secondary rounded p-3 bg-dark">
+                    <button class="btn btn-link text-decoration-none text-light fw-bold w-100 text-start d-flex justify-content-between align-items-center faq-toggle"
+                            aria-expanded="false"
+                            aria-controls="faq-ans-2">
+                        <span>2. How are tournament seedings determined?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div id="faq-ans-2" class="faq-answer mt-3 pt-2 border-top border-secondary text-secondary" hidden>
+                        Seedings are determined based on the official Valve Regional Standings and previous CyberCup Masters placements.
+                    </div>
+                </div>
+
+                <div class="border border-secondary rounded p-3 bg-dark">
+                    <button class="btn btn-link text-decoration-none text-light fw-bold w-100 text-start d-flex justify-content-between align-items-center faq-toggle"
+                            aria-expanded="false"
+                            aria-controls="faq-ans-3">
+                        <span>3. What is the payout timeline for prize pools?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div id="faq-ans-3" class="faq-answer mt-3 pt-2 border-top border-secondary text-secondary" hidden>
+                        Prize pool disbursements are processed within 30 business days following the grand finals.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card bg-black border-secondary p-4" aria-labelledby="task3-heading">
+            <h2 id="task3-heading" class="h4 fw-bold mb-2 text-center">Map Filter</h2>
+            <p class="text-secondary small mb-3 text-center">Type in the box below to filter active maps for notifications.</p>
+
+            <div class="mb-3">
+                <label for="filterInput" class="form-label fw-semibold">Search maps:</label>
+                <input type="search" id="filterInput" class="form-control bg-dark text-light border-secondary" placeholder="Type map name (e.g. Mirage, Nuke)...">
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <span id="filterCount" class="badge bg-primary fs-6">Showing 6 of 6 maps</span>
+            </div>
+            <div id="noResultsMsg" class="alert alert-warning d-none text-center" role="status">
+                No results found matching your query.
+            </div>
+
+            <div class="row g-3" id="cardsGrid">
+                <div class="col-12 col-md-4 filter-item">
+                    <div class="card bg-dark border-secondary h-100 p-3">
+                        <h3 class="h5 card-title fw-bold text-info">Mirage</h3>
+                        <p class="card-text text-secondary mb-0">Active competitive map pool.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 filter-item">
+                    <div class="card bg-dark border-secondary h-100 p-3">
+                        <h3 class="h5 card-title fw-bold text-info">Inferno</h3>
+                        <p class="card-text text-secondary mb-0">Active competitive map pool.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 filter-item">
+                    <div class="card bg-dark border-secondary h-100 p-3">
+                        <h3 class="h5 card-title fw-bold text-info">Nuke</h3>
+                        <p class="card-text text-secondary mb-0">Active competitive map pool.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 filter-item">
+                    <div class="card bg-dark border-secondary h-100 p-3">
+                        <h3 class="h5 card-title fw-bold text-info">Anubis</h3>
+                        <p class="card-text text-secondary mb-0">Active competitive map pool.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 filter-item">
+                    <div class="card bg-dark border-secondary h-100 p-3">
+                        <h3 class="h5 card-title fw-bold text-info">Ancient</h3>
+                        <p class="card-text text-secondary mb-0">Active competitive map pool.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 filter-item">
+                    <div class="card bg-dark border-secondary h-100 p-3">
+                        <h3 class="h5 card-title fw-bold text-info">Dust II</h3>
+                        <p class="card-text text-secondary mb-0">Active competitive map pool.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card bg-black border-secondary p-4" aria-labelledby="task4-heading">
+            <h2 id="task4-heading" class="h4 fw-bold text-center">Team Filter</h2>
+            <p class="text-secondary small text-center">Add favourite teams for notifications.</p>
+
+            <form id="rosterForm" class="row g-2 mb-3">
+                <div class="col-12 col-sm-9">
+                    <label for="rosterInput" class="visually-hidden">Team name</label>
+                    <input type="text" id="rosterInput" class="form-control bg-dark text-light border-secondary" placeholder="Enter team...">
+                </div>
+                <div class="col-12 col-sm-3">
+                    <button type="submit" class="btn btn-success w-100 fw-bold">Add</button>
+                </div>
+            </form>
+
+            <div id="rosterError" class="text-danger small mb-2 d-none">Team name cannot be empty or whitespace only.</div>
+
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="fw-semibold">Teams:</span>
+                <span id="rosterCount" class="badge bg-secondary">Total: 0</span>
+            </div>
+
+            <ul id="rosterList" class="list-group"></ul>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-4 text-secondary border-top border-secondary">
+        <p class="mb-0">&copy; 2026 CyberCup Esports Portal. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/interactive.js"></script>
+</body>
+</html>
