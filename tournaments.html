@@ -7,163 +7,155 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="font-monospace bg-dark text-light">
+<body class="bg-dark text-light">
+
     <nav class="navbar navbar-expand-lg bg-black border-bottom border-secondary fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold text-uppercase" href="index.html">CyberCup</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="mainNavbar">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-lg-2">
+                    <li class="nav-item"><a class="nav-link px-3" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link active px-3" href="tournaments.html">Tournaments</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="teams.html">Teams</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="contact.html">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="register.html">Register</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="contact.html">Contact & Support</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="register.html">Player Registration</a></li>
                 </ul>
-                <ul class="navbar-nav mb-2 mb-lg-0 gap-lg-2">
-                    <li class="nav-item"><a class="nav-link px-3" href="interactive.html">Settings</a></li>
-                </ul>
+                <button id="themeToggleBtn" type="button" class="btn btn-outline-warning btn-sm fw-bold">Switch to Light Theme</button>
             </div>
         </div>
     </nav>
 
-    <main class="container pt-5 mt-5 d-flex flex-column gap-4">
-        <section class="card bg-primary-subtle text-primary-emphasis border-0 py-5 px-3 text-center rounded-3">
-            <div class="card-body">
-                <h1 class="display-6 fw-bold mb-3">Esports Tournaments</h1>
-                <p class="lead mx-auto mb-0" style="max-width: 750px;">
-                    Follow the world's premier esports events with us. Get all the latest schedules, prize pools, and results for major championships.
-                </p>
+    <main class="container pt-5 mt-5 d-flex flex-column gap-4 mb-5">
+
+        <header class="card bg-primary-subtle text-primary-emphasis border-0 py-4 px-3 text-center rounded-3 shadow-sm mt-3">
+            <h1 class="h2 fw-bold mb-1">Global Tournament Circuits</h1>
+            <p class="mb-0 text-secondary">Browse Valve Major, Tier-1 Pro, and Regional Masters events.</p>
+        </header>
+
+        <section class="card bg-black border-secondary p-4">
+            <div class="row g-3 align-items-center mb-3">
+                <div class="col-12 col-md-7">
+                    <label for="tournamentSearchInput" class="form-label fw-semibold">Search by Tournament Name:</label>
+                    <input type="search" id="tournamentSearchInput" class="form-control bg-dark text-light border-secondary" placeholder="Type tournament keyword (e.g., Major, Cologne, Masters)...">
+                </div>
+                <div class="col-12 col-md-5">
+                    <label class="form-label fw-semibold d-block">Tier Category Filter:</label>
+                    <div class="btn-group w-100" role="group" aria-label="Circuit tier filters">
+                        <button type="button" class="btn btn-primary active category-filter-btn" data-category="all">All</button>
+                        <button type="button" class="btn btn-outline-secondary category-filter-btn" data-category="major">Major</button>
+                        <button type="button" class="btn btn-outline-secondary category-filter-btn" data-category="pro">Pro League</button>
+                        <button type="button" class="btn btn-outline-secondary category-filter-btn" data-category="regional">Regional</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center pt-2 border-top border-secondary">
+                <span id="matchCountBadge" class="badge bg-primary fs-6">Showing 6 of 6 events</span>
+                <button type="button" id="clearFiltersBtn" class="btn btn-outline-warning btn-sm fw-bold">Reset Filters</button>
+            </div>
+
+            <div id="noResultsAlert" class="alert alert-warning text-center mt-3 mb-0" role="status" style="display: none;">
+                No tournament events match your search criteria. Try modifying your search or tier filter.
             </div>
         </section>
 
-        <section id="tournaments" class="card bg-black border-secondary p-4">
-            <h2 class="h4 fw-bold mb-4 text-center">Featured & Upcoming Tournaments</h2>
-
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-
-                <div class="col">
-                    <div class="card bg-dark border-secondary h-100 text-center p-3">
-                        <div class="card-body d-flex flex-column">
-                            <h3 class="h5 card-title fw-bold">PGL Major CS2</h3>
-                            <p class="card-text mb-1 text-secondary">Location: Copenhagen, Denmark</p>
-                            <p class="card-text mb-1 text-warning fw-semibold">Prize Pool: $1,250,000</p>
-                            <p class="card-text mb-3 text-secondary">Teams: 24 contenders</p>
-                            <div class="mt-auto">
-                                <span class="badge text-bg-secondary w-100 py-2">Status: Completed</span>
-                            </div>
+        <section class="row g-4" id="tournamentGridContainer">
+            <div class="col-12 col-md-6 col-lg-4 tournament-filter-item" data-category="major">
+                <div class="card bg-dark border-secondary h-100 p-3">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge bg-danger w-auto align-self-start mb-2">Valve Major</span>
+                        <h3 class="h5 card-title fw-bold text-light tournament-title">PGL Copenhagen Major</h3>
+                        <p class="text-secondary small mb-1">Location: Royal Arena, Denmark</p>
+                        <p class="text-warning fw-bold mb-3">Prize Pool: $1,250,000</p>
+                        <div class="mt-auto">
+                            <span class="badge text-bg-secondary w-100 py-2">Status: Completed</span>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="col">
-                    <div class="card bg-dark border-secondary h-100 text-center p-3">
-                        <div class="card-body d-flex flex-column">
-                            <h3 class="h5 card-title fw-bold">IEM Cologne</h3>
-                            <p class="card-text mb-1 text-secondary">Location: Cologne, Germany</p>
-                            <p class="card-text mb-1 text-warning fw-semibold">Prize Pool: $1,000,000</p>
-                            <p class="card-text mb-3 text-secondary">Teams: 24 contenders</p>
-                            <div class="mt-auto">
-                                <span class="badge text-bg-primary w-100 py-2">Status: Upcoming</span>
-                            </div>
+            <div class="col-12 col-md-6 col-lg-4 tournament-filter-item" data-category="pro">
+                <div class="card bg-dark border-secondary h-100 p-3">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge bg-info text-dark w-auto align-self-start mb-2">Tier-1 Pro</span>
+                        <h3 class="h5 card-title fw-bold text-light tournament-title">IEM Cologne Cathedral</h3>
+                        <p class="text-secondary small mb-1">Location: Lanxess Arena, Germany</p>
+                        <p class="text-warning fw-bold mb-3">Prize Pool: $1,000,000</p>
+                        <div class="mt-auto">
+                            <span class="badge text-bg-primary w-100 py-2">Status: In Preparation</span>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="col">
-                    <div class="card bg-dark border-secondary h-100 text-center p-3">
-                        <div class="card-body d-flex flex-column">
-                            <h3 class="h5 card-title fw-bold">BLAST Premier</h3>
-                            <p class="card-text mb-1 text-secondary">Location: Singapore</p>
-                            <p class="card-text mb-1 text-warning fw-semibold">Prize Pool: $1,000,000</p>
-                            <p class="card-text mb-3 text-secondary">Teams: 8 contenders</p>
-                            <div class="mt-auto">
-                                <span class="badge text-bg-danger w-100 py-2">Status: Live Now</span>
-                            </div>
+            <div class="col-12 col-md-6 col-lg-4 tournament-filter-item" data-category="pro">
+                <div class="card bg-dark border-secondary h-100 p-3">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge bg-info text-dark w-auto align-self-start mb-2">Tier-1 Pro</span>
+                        <h3 class="h5 card-title fw-bold text-light tournament-title">BLAST Premier World Final</h3>
+                        <p class="text-secondary small mb-1">Location: Resorts World Sentosa, Singapore</p>
+                        <p class="text-warning fw-bold mb-3">Prize Pool: $1,000,000</p>
+                        <div class="mt-auto">
+                            <span class="badge text-bg-danger w-100 py-2">Status: Live Broadcast</span>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="col">
-                    <div class="card bg-dark border-secondary h-100 text-center p-3">
-                        <div class="card-body d-flex flex-column">
-                            <h3 class="h5 card-title fw-bold">IEM Katowice</h3>
-                            <p class="card-text mb-1 text-secondary">Location: Katowice, Poland</p>
-                            <p class="card-text mb-1 text-warning fw-semibold">Prize Pool: $1,000,000</p>
-                            <p class="card-text mb-3 text-secondary">Teams: 24 contenders</p>
-                            <div class="mt-auto">
-                                <span class="badge text-bg-secondary w-100 py-2">Status: Completed</span>
-                            </div>
+            <div class="col-12 col-md-6 col-lg-4 tournament-filter-item" data-category="pro">
+                <div class="card bg-dark border-secondary h-100 p-3">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge bg-info text-dark w-auto align-self-start mb-2">Tier-1 Pro</span>
+                        <h3 class="h5 card-title fw-bold text-light tournament-title">ESL Pro League Season 21</h3>
+                        <p class="text-secondary small mb-1">Location: St. Julian's, Malta</p>
+                        <p class="text-warning fw-bold mb-3">Prize Pool: $750,000</p>
+                        <div class="mt-auto">
+                            <span class="badge text-bg-primary w-100 py-2">Status: Bracket Seeding</span>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="col">
-                    <div class="card bg-dark border-secondary h-100 text-center p-3">
-                        <div class="card-body d-flex flex-column">
-                            <h3 class="h5 card-title fw-bold">ESL Pro League S21</h3>
-                            <p class="card-text mb-1 text-secondary">Location: St. Julian's, Malta</p>
-                            <p class="card-text mb-1 text-warning fw-semibold">Prize Pool: $750,000</p>
-                            <p class="card-text mb-3 text-secondary">Teams: 32 contenders</p>
-                            <div class="mt-auto">
-                                <span class="badge text-bg-primary w-100 py-2">Status: Upcoming</span>
-                            </div>
+            <div class="col-12 col-md-6 col-lg-4 tournament-filter-item" data-category="regional">
+                <div class="card bg-dark border-secondary h-100 p-3">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge bg-success w-auto align-self-start mb-2">Regional Masters</span>
+                        <h3 class="h5 card-title fw-bold text-light tournament-title">CyberCup Masters Almaty</h3>
+                        <p class="text-secondary small mb-1">Location: Baluan Sholak Arena, Kazakhstan</p>
+                        <p class="text-warning fw-bold mb-3">Prize Pool: $250,000</p>
+                        <div class="mt-auto">
+                            <span class="badge text-bg-success w-100 py-2">Status: Registration Open</span>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="col">
-                    <div class="card bg-dark border-secondary h-100 text-center p-3">
-                        <div class="card-body d-flex flex-column">
-                            <h3 class="h5 card-title fw-bold">CyberCup Masters</h3>
-                            <p class="card-text mb-1 text-secondary">Location: Almaty, Kazakhstan</p>
-                            <p class="card-text mb-1 text-warning fw-semibold">Prize Pool: $250,000</p>
-                            <p class="card-text mb-3 text-secondary">Teams: 16 contenders</p>
-                            <div class="mt-auto">
-                                <span class="badge text-bg-success w-100 py-2">Status: Open Registration</span>
-                            </div>
+            <div class="col-12 col-md-6 col-lg-4 tournament-filter-item" data-category="regional">
+                <div class="card bg-dark border-secondary h-100 p-3">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge bg-success w-auto align-self-start mb-2">Regional Masters</span>
+                        <h3 class="h5 card-title fw-bold text-light tournament-title">YaLLa Compass Abu Dhabi</h3>
+                        <p class="text-secondary small mb-1">Location: Space42 Arena, UAE</p>
+                        <p class="text-warning fw-bold mb-3">Prize Pool: $400,000</p>
+                        <div class="mt-auto">
+                            <span class="badge text-bg-info w-100 py-2">Status: Qualifier Phase</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="col">
-                    <div class="card bg-dark border-secondary h-100 text-center p-3">
-                        <div class="card-body d-flex flex-column">
-                            <h3 class="h5 card-title fw-bold">YaLLa Compass</h3>
-                            <p class="card-text mb-1 text-secondary">Location: Abu Dhabi, UAE</p>
-                            <p class="card-text mb-1 text-warning fw-semibold">Prize Pool: $400,000</p>
-                            <p class="card-text mb-3 text-secondary">Teams: 12 contenders</p>
-                            <div class="mt-auto">
-                                <span class="badge text-bg-info w-100 py-2">Status: Announced</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card bg-dark border-secondary h-100 text-center p-3">
-                        <div class="card-body d-flex flex-column">
-                            <h3 class="h5 card-title fw-bold">Thunderpick WC</h3>
-                            <p class="card-text mb-1 text-secondary">Location: Berlin / Online</p>
-                            <p class="card-text mb-1 text-warning fw-semibold">Prize Pool: $850,000</p>
-                            <p class="card-text mb-3 text-secondary">Teams: 16 contenders</p>
-                            <div class="mt-auto">
-                                <span class="badge text-bg-warning w-100 py-2">Status: Group Stage</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </section>
-
-        <footer class="text-center py-4 text-secondary border-top border-secondary mt-2">
-            <p class="mb-0">&copy; 2026 CyberCup Esports Portal. All rights reserved.</p>
-        </footer>
 
     </main>
 
+    <footer class="footer text-center py-4 text-secondary border-top border-secondary">
+        <p class="mb-0">&copy; 2026 CyberCup Esports Portal. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
