@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberCup | Sign Up & Log In</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg cc-surface border-bottom fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-uppercase" href="index.html">CyberCup</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-lg-1">
+                    <li class="nav-item"><a class="nav-link px-3" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="tournaments.html">Tournaments</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="teams.html">Teams</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0 flex-wrap">
+                    <a id="navLoginLink" class="btn btn-cc-outline btn-sm fw-semibold btn-animated" href="auth.html#loginSection">Log In</a>
+                    <a id="navRegisterLink" class="btn btn-cc-solid btn-sm fw-semibold btn-animated" href="auth.html#signupSection">Sign Up</a>
+                    <button id="themeToggleBtn" type="button" class="btn btn-cc-outline btn-sm fw-semibold btn-animated">
+                        <i id="themeIcon" class="bi bi-sun-fill theme-icon me-1"></i><span id="themeLabel">Light</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container pt-5 mt-3 d-flex flex-column gap-4 mb-4">
+        <header class="card cc-surface border p-4 text-center mt-3">
+            <h1 class="h2 fw-bold text-uppercase mb-2">Competitor Account Portal</h1>
+            <p class="text-secondary mb-0">Sign up to store your profile locally, or log in to access your CyberCup dashboard.</p>
+        </header>
+
+        <div class="row g-4">
+            <div class="col-12 col-lg-5" id="loginSection">
+                <section class="card cc-surface border p-4 h-100">
+                    <h2 class="h4 fw-bold text-uppercase mb-3"><i class="bi bi-box-arrow-in-right me-2"></i>Log In</h2>
+                    <div id="loginGlobalError" class="cc-alert border-danger text-danger p-3 mb-3 d-none" role="alert"></div>
+                    <form id="loginForm" novalidate>
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label fw-semibold">Email Address</label>
+                            <input type="email" id="loginEmail" class="form-control" placeholder="player@cybercup.kz" required>
+                            <div id="loginEmailErr" class="invalid-feedback">Enter a valid email address.</div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="loginPassword" class="form-label fw-semibold">Password</label>
+                            <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required>
+                            <div id="loginPassErr" class="invalid-feedback">Password must be at least 8 characters.</div>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-cc-outline fw-semibold btn-animated">Log In to Profile</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+
+            <div class="col-12 col-lg-7" id="signupSection">
+                <section class="card cc-surface border p-4 h-100">
+                    <h2 class="h4 fw-bold text-uppercase mb-3"><i class="bi bi-person-plus me-2"></i>Sign Up</h2>
+                    <div id="signupGlobalError" class="cc-alert border-danger text-danger p-3 mb-3 d-none" role="alert"></div>
+                    <form id="signupForm" novalidate>
+                        <div class="row g-3 mb-3">
+                            <div class="col-12 col-md-6">
+                                <label for="signupName" class="form-label fw-semibold">Name *</label>
+                                <input type="text" id="signupName" class="form-control" placeholder="e.g., Amia Akiyama" required>
+                                <div id="signupNameErr" class="invalid-feedback">Minimum 2 characters required.</div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="signupEmail" class="form-label fw-semibold">Email *</label>
+                                <input type="email" id="signupEmail" class="form-control" placeholder="who@cybercup.kz" required>
+                                <div id="signupEmailErr" class="invalid-feedback">Valid email is required.</div>
+                            </div>
+                        </div>
+                        <div class="row g-3 mb-3">
+                            <div class="col-12 col-md-6">
+                                <label for="signupPhone" class="form-label fw-semibold">Phone Number *</label>
+                                <input type="tel" id="signupPhone" class="form-control" placeholder="+7 747 555 1234" required>
+                                <div id="signupPhoneErr" class="invalid-feedback">Valid phone number required (10–16 digits).</div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="signupCountry" class="form-label fw-semibold">Country *</label>
+                                <select id="signupCountry" class="form-select" required>
+                                    <option value="" selected disabled>-- Select country --</option>
+                                    <option value="KZ">Kazakhstan</option>
+                                    <option value="UZ">Uzbekistan</option>
+                                    <option value="SE">Sweden</option>
+                                    <option value="DE">Germany</option>
+                                    <option value="CN">China</option>
+                                    <option value="OTHER">Other</option>
+                                </select>
+                                <div id="signupCountryErr" class="invalid-feedback">Please select your country.</div>
+                            </div>
+                        </div>
+                        <div class="row g-3 mb-4">
+                            <div class="col-12 col-md-6">
+                                <label for="signupPassword" class="form-label fw-semibold">Password *</label>
+                                <input type="password" id="signupPassword" class="form-control" placeholder="Password" required>
+                                <div class="form-text small">8+ chars, Upper, Lower, Digit & Symbol (@$!%*?&#).</div>
+                                <div id="signupPassErr" class="invalid-feedback">Password lacks required complexity.</div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="signupConfirmPassword" class="form-label fw-semibold">Confirm Password *</label>
+                                <input type="password" id="signupConfirmPassword" class="form-control" placeholder="Repeat password" required>
+                                <div id="signupConfirmErr" class="invalid-feedback">Passwords do not match.</div>
+                            </div>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-cc-solid fw-semibold btn-animated">Create Account & Open Profile</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="cc-surface border-top py-4 text-center text-secondary">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 CyberCup Esports Portal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

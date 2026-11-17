@@ -4,95 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CyberCup | Contact & Support</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-dark text-light">
-
-    <nav class="navbar navbar-expand-lg bg-black border-bottom border-secondary fixed-top">
+<body>
+    <nav class="navbar navbar-expand-lg cc-surface border-bottom fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold text-uppercase" href="index.html">CyberCup</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="mainNavbar">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-lg-2">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-lg-1">
                     <li class="nav-item"><a class="nav-link px-3" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="tournaments.html">Tournaments</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="teams.html">Teams</a></li>
-                    <li class="nav-item"><a class="nav-link active px-3" href="contact.html">Contact & Support</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="register.html">Player Registration</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="contact.html">Contact</a></li>
                 </ul>
-                <button id="themeToggleBtn" type="button" class="btn btn-outline-warning btn-sm fw-bold">Switch to Light Theme</button>
+                <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0 flex-wrap">
+                    <a id="navLoginLink" class="btn btn-cc-outline btn-sm fw-semibold btn-animated" href="auth.html#loginSection">Log In</a>
+                    <a id="navRegisterLink" class="btn btn-cc-solid btn-sm fw-semibold btn-animated" href="auth.html#signupSection">Sign Up</a>
+                    <button id="themeToggleBtn" type="button" class="btn btn-cc-outline btn-sm fw-semibold btn-animated">
+                        <i id="themeIcon" class="bi bi-sun-fill theme-icon me-1"></i><span id="themeLabel">Light</span>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
 
-    <main class="container pt-5 mt-5 d-flex flex-column gap-5 mb-5">
-
-        <header class="card bg-primary-subtle text-primary-emphasis border-0 py-4 px-3 text-center rounded-3 shadow-sm mt-3">
-            <h1 class="h2 fw-bold mb-1">Tournament Operations Support</h1>
-            <p class="mb-0 text-secondary">Dispatch arbitrated dispute notices, broadcaster credentials, or sponsorship requests.</p>
+    <main class="container pt-5 mt-3 d-flex flex-column gap-4 mb-4">
+        <header class="card cc-surface border p-4 text-center mt-3">
+            <h1 class="h2 fw-bold text-uppercase mb-2">Contact Support</h1>
+            <p class="text-secondary mb-0">Reach us for help.</p>
         </header>
 
-        <section class="card bg-black border-secondary p-4 p-md-5">
-            <h2 class="h4 fw-bold mb-4 text-center">Submit an Operational Inquiry</h2>
-
-            <div id="formSuccessBox" class="alert alert-success text-center mb-4" role="alert" style="display: none;">
-                <h3 class="h5 fw-bold mb-1">Inquiry Dispatched Successfully!</h3>
-                <p class="mb-0 small text-dark"><strong>[Frontend Simulation Notice]:</strong> Form validated client-side via jQuery. No backend submission was processed.</p>
+        <section class="card cc-surface border p-4 p-md-5">
+            <h2 class="h4 fw-bold text-uppercase mb-4 text-center">Inquiry</h2>
+            <div id="contactSuccessAlert" class="cc-alert p-3 text-center d-none mb-4" role="alert">
+                <strong>[SUCCESS]</strong> Your inquiry has been submitted.
             </div>
-
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10 col-lg-8">
-                    <form id="validatedContactForm" novalidate>
-
+                    <form id="contactForm" novalidate>
                         <div class="mb-3">
-                            <label for="contactFullName" class="form-label fw-semibold">Operative Full Name / Team Manager <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control bg-dark text-light border-secondary" id="contactFullName" placeholder="e.g., Kirill Mikhailov">
-                            <div class="invalid-feedback">Name must be at least 2 characters long.</div>
+                            <label for="contactName" class="form-label fw-semibold">Full Name *</label>
+                            <input type="text" id="contactName" class="form-control" placeholder="e.g., Amia Akiyama" required>
+                            <div id="contactNameErr" class="invalid-feedback">Full name must be at least 2 characters.</div>
                         </div>
-
-                        <div class="mb-3">
-                            <label for="contactEmailAddr" class="form-label fw-semibold">Email Address <span class="text-danger">*</span></label>
-                            <input type="email" class="form-control bg-dark text-light border-secondary" id="contactEmailAddr" placeholder="manager@organization.kz">
-                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        <div class="row g-3 mb-3">
+                            <div class="col-12 col-md-6">
+                                <label for="contactEmail" class="form-label fw-semibold">Email Address *</label>
+                                <input type="email" id="contactEmail" class="form-control" placeholder="whatever@cybercup.kz" required>
+                                <div id="contactEmailErr" class="invalid-feedback">Enter a valid email address.</div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="contactPhone" class="form-label fw-semibold">Phone Number *</label>
+                                <input type="tel" id="contactPhone" class="form-control" placeholder="+7 747 123 4567" required>
+                                <div id="contactPhoneErr" class="invalid-feedback">Enter a valid phone number (10–16 digits).</div>
+                            </div>
                         </div>
-
                         <div class="mb-3">
-                            <label for="contactSubjectSelect" class="form-label fw-semibold">Inquiry Subject <span class="text-danger">*</span></label>
-                            <select class="form-select bg-dark text-light border-secondary" id="contactSubjectSelect">
-                                <option value="" selected disabled>-- Select inquiry classification --</option>
-                                <option value="rules">Tournament Rules & Anti-Cheat Appeal</option>
-                                <option value="roster">Roster Emergency Substitution</option>
-                                <option value="broadcast">Broadcaster & Media Accreditation</option>
-                                <option value="sponsorship">Commercial Sponsorship</option>
+                            <label for="contactSubject" class="form-label fw-semibold">Subject *</label>
+                            <select id="contactSubject" class="form-select" required>
+                                <option value="" selected disabled>-- Choose a topic --</option>
+                                <option value="accreditation">Team & Player Accreditation</option>
+                                <option value="dispute">Match Rules & Referee Dispute</option>
+                                <option value="media">Broadcaster & Press Pass</option>
+                                <option value="sponsor">Commercial Partnership</option>
                             </select>
-                            <div class="invalid-feedback">Please select an inquiry subject from the list.</div>
+                            <div id="contactSubjectErr" class="invalid-feedback">Please select an inquiry subject.</div>
                         </div>
-
                         <div class="mb-4">
-                            <label for="contactMessageText" class="form-label fw-semibold">Inquiry Details <span class="text-danger">*</span></label>
-                            <textarea class="form-control bg-dark text-light border-secondary" id="contactMessageText" rows="5" placeholder="Specify match identification number, match time, and detailed particulars (10-500 characters)..."></textarea>
-                            <div class="invalid-feedback">Message must be between 10 and 500 characters.</div>
+                            <label for="contactMessage" class="form-label fw-semibold">Message *</label>
+                            <textarea id="contactMessage" class="form-control" rows="4" placeholder="Write your message (10–500 characters)..." required></textarea>
+                            <div id="contactMsgErr" class="invalid-feedback">Message must be between 10 and 500 characters.</div>
                         </div>
-
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-primary btn-lg fw-bold">Dispatch Inquiry</button>
+                            <button type="submit" class="btn btn-cc-solid btn-lg fw-semibold btn-animated">Submit Inquiry</button>
                         </div>
                     </form>
                 </div>
             </div>
         </section>
-
     </main>
 
-    <footer class="footer text-center py-4 text-secondary border-top border-secondary">
-        <p class="mb-0">&copy; 2026 CyberCup Esports Portal. All rights reserved.</p>
+    <footer class="cc-surface border-top py-4 text-center text-secondary">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 CyberCup Esports Portal. All rights reserved.</p>
+        </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

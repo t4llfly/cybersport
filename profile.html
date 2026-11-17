@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberCup | Player Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg cc-surface border-bottom fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-uppercase" href="index.html">CyberCup</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-lg-1">
+                    <li class="nav-item"><a class="nav-link px-3" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="tournaments.html">Tournaments</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="teams.html">Teams</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0 flex-wrap">
+                    <a id="navLoginLink" class="btn btn-cc-outline btn-sm fw-semibold btn-animated" href="auth.html#loginSection">Log In</a>
+                    <a id="navRegisterLink" class="btn btn-cc-solid btn-sm fw-semibold btn-animated" href="auth.html#signupSection">Sign Up</a>
+                    <button id="themeToggleBtn" type="button" class="btn btn-cc-outline btn-sm fw-semibold btn-animated">
+                        <i id="themeIcon" class="bi bi-sun-fill theme-icon me-1"></i><span id="themeLabel">Light</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container pt-5 mt-5 d-flex flex-column gap-4 mb-5">
+        <header class="card cc-surface border p-4 text-center mt-3">
+            <h1 class="h2 fw-bold text-uppercase mb-2">Profile</h1>
+            <p class="text-secondary mb-0">Account details and watchlist.</p>
+        </header>
+        <section id="profileUnauthorized" class="card cc-surface border p-5 text-center d-none">
+            <i class="bi bi-lock-fill fs-1 mb-3"></i>
+            <h2 class="h4 fw-bold text-uppercase mb-2">Authentication Required</h2>
+            <p class="text-secondary mb-4">You are not logged into any CyberCup account. Please sign up or log in to view your profile.</p>
+            <div>
+                <a href="auth.html" class="btn btn-cc-solid fw-semibold btn-animated px-4">Go to Log In / Sign Up</a>
+            </div>
+        </section>
+        <section id="profileDetailsCard" class="d-none fade-in-up">
+            <div class="row g-4">
+                <div class="col-12 col-md-6">
+                    <div class="card cc-surface border p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+                            <h2 class="h4 fw-bold text-uppercase mb-0"><i class="bi bi-person-badge me-2"></i>Account Details</h2>
+                        </div>
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item cc-card"><strong>Full Name:</strong> <span id="profName"></span></li>
+                            <li class="list-group-item cc-card"><strong>Email:</strong> <span id="profEmail"></span></li>
+                            <li class="list-group-item cc-card"><strong>Phone:</strong> <span id="profPhone"></span></li>
+                            <li class="list-group-item cc-card"><strong>Country:</strong> <span id="profCountry"></span></li>
+                            <li class="list-group-item cc-card"><strong>Joined:</strong> <span id="profJoined"></span></li>
+                        </ul>
+                        <button id="logoutBtn" type="button" class="btn btn-cc-outline fw-semibold btn-animated mt-auto">
+                            <i class="bi bi-box-arrow-left me-2"></i>Log Out
+                        </button>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="card cc-surface border p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+                            <h2 class="h4 fw-bold text-uppercase mb-0"><i class="bi bi-bookmark-fill me-2"></i>Watchlist</h2>
+                            <a href="teams.html" class="btn btn-cc-outline btn-sm">Manage Teams</a>
+                        </div>
+                        <ul id="profWatchlist" class="list-group"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="cc-surface border-top py-4 text-center text-secondary">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 CyberCup Esports Portal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
